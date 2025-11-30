@@ -1,0 +1,29 @@
+2025-11-30 10:10:18, MOVE, v:1, k:poo@contato, mode:DOWN
+2025-11-30 10:10:21, MOVE, v:1, k:poo@contato, mode:PICK
+2025-11-30 10:10:21, EXEC, v:1, k:poo@contato, mode:FULL, rate:0, size:0
+2025-11-30 10:29:15, EXEC, v:1, k:poo@contato, mode:FULL, rate:0, size:23
+2025-11-30 10:29:17, EXEC, v:1, k:poo@contato, mode:FULL, rate:0
+2025-11-30 10:29:19, MOVE, v:1, k:poo@contato, mode:BACK
+2025-11-30 10:29:27, MOVE, v:1, k:poo@contato, mode:PICK
+2025-11-30 10:29:28, EXEC, v:1, k:poo@contato, mode:FULL, rate:0
+2025-11-30 10:32:49, EXEC, v:1, k:poo@contato, mode:FULL, rate:0, size:29
+2025-11-30 10:38:42, EXEC, v:1, k:poo@contato, mode:FULL, rate:0, size:32
+2025-11-30 10:38:45, MOVE, v:1, k:poo@contato, mode:BACK
+2025-11-30 10:53:57, MOVE, v:1, k:poo@contato, mode:PICK
+2025-11-30 10:53:58, EXEC, v:1, k:poo@contato, mode:FULL, rate:0
+2025-11-30 10:54:00, MOVE, v:1, k:poo@contato, mode:BACK
+2025-11-30 11:03:29, MOVE, v:1, k:poo@contato, mode:PICK
+2025-11-30 11:03:30, EXEC, v:1, k:poo@contato, mode:FULL, rate:0
+2025-11-30 11:03:31, MOVE, v:1, k:poo@contato, mode:BACK
+2025-11-30 11:18:05, MOVE, v:1, k:poo@contato, mode:PICK
+2025-11-30 11:18:06, EXEC, v:1, k:poo@contato, mode:FULL, rate:0
+2025-11-30 11:18:08, MOVE, v:1, k:poo@contato, mode:BACK
+2025-11-30 11:29:23, MOVE, v:1, k:poo@contato, mode:PICK
+2025-11-30 11:29:24, EXEC, v:1, k:poo@contato, mode:FULL, rate:0
+2025-11-30 11:29:25, MOVE, v:1, k:poo@contato, mode:BACK
+2025-11-30 11:37:49, MOVE, v:1, k:poo@contato, mode:PICK
+2025-11-30 11:37:49, EXEC, v:1, k:poo@contato, mode:FULL, rate:0
+2025-11-30 11:37:50, EXEC, v:1, k:poo@contato, mode:FULL, rate:0
+2025-11-30 11:37:51, EXEC, v:1, k:poo@contato, mode:FULL, rate:0
+2025-11-30 11:37:51, EXEC, v:1, k:poo@contato, mode:FULL, rate:0
+2025-11-30 11:37:53, MOVE, v:1, k:poo@contato, mode:BACK

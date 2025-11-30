@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-30_10-10-21",
+            "content": "@@ -1,510 +0,0 @@\n-class Fone:%0A    def __init__(self, id: str, number: str):%0A        self.id = id%0A        self.number = number%0A%0A    def isValid(self) -%3E bool:%0A        valid = %220123456789().%22%0A        for _ in self.number:%0A            if _ not in valid:%0A                return False%0A        return True%0A%0A    def Get_id(self):%0A        return self.id%0A    %0A    def Get_Number(self):%0A        return self.number%0A    %0A    def Set_id(self, id: str):%0A        self.id = id%0A%0A    def Set_Number(self, number:str):%0A        self.number = number\n",
+            "lines": "0"
+        },
+        {
+            "label": "2025-11-30_10-29-15",
+            "content": "@@ -507,121 +507,4 @@\n mber\n-%0A%0A    def __str__(self) -%3E str:%0A        return f%22%7Bself.id%7D:%7Bself.number%7D%22%0A    %0Afone = Fone(%22L%C3%A9o%22,%228588%22)%0Aprint(fone)%0A\n",
+            "lines": "23"
+        },
+        {
+            "label": "2025-11-30_10-32-49",
+            "content": "@@ -586,149 +586,42 @@\n    %0A\n-class Contact:%0A    def __init__(self, name: str = %22%22):%0A        self.name = name%0A        self.favorited = False%0A        self.fone: list%5BFone%5D = %5B%5D\n+fone = Fone(%22L%C3%A9o%22,%228588%22)%0Aprint(fone)%0A\n",
+            "lines": "29"
+        },
+        {
+            "label": "2025-11-30_10-38-42",
+            "content": "class Fone:\n    def __init__(self, id: str, number: str):\n        self.id = id\n        self.number = number\n\n    def isValid(self) -> bool:\n        valid = \"0123456789().\"\n        for _ in self.number:\n            if _ not in valid:\n                return False\n        return True\n\n    def Get_id(self):\n        return self.id\n    \n    def Get_Number(self):\n        return self.number\n    \n    def Set_id(self, id: str):\n        self.id = id\n\n    def Set_Number(self, number:str):\n        self.number = number\n\n    def __str__(self) -> str:\n        return f\"{self.id}:{self.number}\"\n    \nclass Contact:\n    def __init__(self, name: str = \"\"):\n        self.name = name\n        self.favorited = False\n        self.fone: list[Fone] = []",
+            "lines": "32"
+        }
+    ]
+}
