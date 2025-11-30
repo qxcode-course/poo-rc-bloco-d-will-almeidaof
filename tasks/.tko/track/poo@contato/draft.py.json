@@ -17,8 +17,38 @@
         },
         {
             "label": "2025-11-30_10-38-42",
-            "content": "class Fone:\n    def __init__(self, id: str, number: str):\n        self.id = id\n        self.number = number\n\n    def isValid(self) -> bool:\n        valid = \"0123456789().\"\n        for _ in self.number:\n            if _ not in valid:\n                return False\n        return True\n\n    def Get_id(self):\n        return self.id\n    \n    def Get_Number(self):\n        return self.number\n    \n    def Set_id(self, id: str):\n        self.id = id\n\n    def Set_Number(self, number:str):\n        self.number = number\n\n    def __str__(self) -> str:\n        return f\"{self.id}:{self.number}\"\n    \nclass Contact:\n    def __init__(self, name: str = \"\"):\n        self.name = name\n        self.favorited = False\n        self.fone: list[Fone] = []",
+            "content": "@@ -731,575 +731,4 @@\n = %5B%5D\n-%0A%0A%0A    def addFone(self, id: str, number: str):%0A        fone = Fone(id, number)%0A        if fone.isValid():%0A            self.fone.append(fone)%0A        else:%0A            print(%22fail: invalid number%22)%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Adef main():%0A    contact = Contact()%0A    while True:%0A        line = input()%0A        print(%22$%22+line)%0A        args = line.split()%0A        if args%5B0%5D == %22end%22:%0A            break%0A        elif args%5B0%5D == %22init%22:%0A            name = args%5B1%5D if len(args) %3E 1 else %22%22%0A            contact = Contact(name)%0A        elif args%5B0%5D == %22show%22:%0A            print(contact)%0A%0A%0Amain()%0A\n",
             "lines": "32"
+        },
+        {
+            "label": "2025-11-30_11-47-46",
+            "content": "@@ -931,218 +931,8 @@\n )%0A%0A%0A\n-    def __str__(self):%0A        lista = %22, %22.join(%5Bstr(x) for x in self.fone%5D)%0A        if self.favorited:%0A            return f%22@ %7Bself.name%7D %5B%7Blista%7D%5D%22%0A        else:%0A            return f%22- %7Bself.name%7D %5B%7Blista%7D%5D%22\n %0A%0A%0A%0A\n",
+            "lines": "67"
+        },
+        {
+            "label": "2025-11-30_11-51-09",
+            "content": "@@ -1503,131 +1503,8 @@\n ct)%0A\n-        elif args%5B0%5D == %22add%22:%0A            id = args%5B1%5D%0A            number = args%5B2%5D%0A            contact.addFone(id,number)\n %0A%0Ama\n",
+            "lines": "72"
+        },
+        {
+            "label": "2025-11-30_11-52-57",
+            "content": "@@ -930,182 +930,8 @@\n %22)%0A%0A\n-    def rmFone(self, index: int):%0A        if index %3C0 or index %3E len(self.fone):%0A            print(%22fail: index errado%22)%0A            return%0A        self.fone.pop(index)%0A%0A%0A%0A%0A%0A\n %0A   \n@@ -1626,105 +1626,8 @@\n ber)\n-%0A        elif args%5B0%5D == %22rm%22:%0A            index = int(args%5B1%5D)%0A            contact.rmFone(index)\n %0A%0Ama\n",
+            "lines": "75"
+        },
+        {
+            "label": "2025-11-30_11-58-46",
+            "content": "@@ -1101,136 +1101,10 @@\n )%0A%0A%0A\n-    def offFavorite(self):%0A        self.favorited = not self.favorited%0A%0A    def onFavorited(self):%0A        return self.favorited\n+%0A%0A\n %0A%0A  \n@@ -1897,132 +1897,8 @@\n dex)\n-%0A        elif args%5B0%5D == %22tfav%22:%0A            contact.offFavorite()%0A        else:%0A            print(%22fail: comando invalido%22)\n %0A%0Ama\n",
+            "lines": "88"
+        },
+        {
+            "label": "2025-11-30_12-03-32",
+            "content": "@@ -1169,16 +1169,73 @@\n orited%0A%0A\n+    def onFavorited(self):%0A        return self.favorited%0A\n %0A    def\n",
+            "lines": "94"
+        },
+        {
+            "label": "2025-11-30_12-06-06",
+            "content": "class Fone:\n    def __init__(self, id: str, number: str):\n        self.id = id\n        self.number = number\n\n    def isValid(self) -> bool:\n        valid = \"0123456789().\"\n        for _ in self.number:\n            if _ not in valid:\n                return False\n        return True\n\n    def Get_id(self):\n        return self.id\n    \n    def Get_Number(self):\n        return self.number\n    \n    def Set_id(self, id: str):\n        self.id = id\n\n    def Set_Number(self, number:str):\n        self.number = number\n\n    def __str__(self) -> str:\n        return f\"{self.id}:{self.number}\"\n    \nclass Contact:\n    def __init__(self, name: str = \"\"):\n        self.name = name\n        self.favorited = False\n        self.fone: list[Fone] = []\n\n\n    def addFone(self, id: str, number: str):\n        fone = Fone(id, number)\n        if fone.isValid():\n            self.fone.append(fone)\n        else:\n            print(\"fail: invalid number\")\n\n    def rmFone(self, index: int):\n        if index <0 or index > len(self.fone):\n            print(\"fail: index errado\")\n            return\n        self.fone.pop(index)\n\n\n    def offFavorite(self):\n        self.favorited = not self.favorited\n\n\n    def __str__(self):\n        lista = \", \".join([str(x) for x in self.fone])\n        if self.favorited:\n            return f\"@ {self.name} [{lista}]\"\n        else:\n            return f\"- {self.name} [{lista}]\"\n\n\n\n\n\n\n\n\ndef main():\n    contact = Contact()\n    while True:\n        line = input()\n        print(\"$\"+line)\n        args = line.split()\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"init\":\n            name = args[1] if len(args) > 1 else \"\"\n            contact = Contact(name)\n        elif args[0] == \"show\":\n            print(contact)\n        elif args[0] == \"add\":\n            id = args[1]\n            number = args[2]\n            contact.addFone(id,number)\n        elif args[0] == \"rm\":\n            index = int(args[1])\n            contact.rmFone(index)\n        elif args[0] == \"tfav\":\n            contact.offFavorite()\n        else:\n            print(\"fail: comando invalido\")\n\nmain()\n",
+            "lines": "92"
         }
     ]
 }
