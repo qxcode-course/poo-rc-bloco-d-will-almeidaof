@@ -12,7 +12,7 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2025-11-30 10:10:05'
+  cache_timestamp: '2025-12-03 16:04:27'
   filters:
   - crud
 expanded:
@@ -27,4 +27,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: poo@contato
+selected: poo@agenda

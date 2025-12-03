@@ -1,0 +1,69 @@
+{
+    "patches": [
+        {
+            "label": "2025-12-03_16-04-36",
+            "content": "@@ -1,221 +0,0 @@\n-class Fone: %0A    def __init__(self, id: str, number: str):%0A        self.__id = id%0A        self.__number = number%0A%0A    def __str__(self):%0A        return f%22%7Bself.__id%7D:%7Bself.__number%7D%22%0A%0Afone = Fone(%22eva%22,%228890%22)%0Aprint(fone)\n",
+            "lines": "0"
+        },
+        {
+            "label": "2025-12-03_16-10-43",
+            "content": "@@ -179,239 +179,8 @@\n er%7D%22\n-%0A    %0A    def Get_id(self):%0A        return self.__id%0A    def Get_Number(self):%0A        return self.__number%0A    def set_id(self, id: str):%0A        self.__id = id%0A    def set_number(self, number: str):%0A        self.__number = number\n %0A%0Afo\n@@ -200,17 +200,16 @@\n a%22,%228890\n-b\n %22)%0Aprint\n",
+            "lines": "10"
+        },
+        {
+            "label": "2025-12-03_16-15-44",
+            "content": "@@ -185,180 +185,8 @@\n    %0A\n-    def isValid(self):%0A        valid = %220123456789().%22%0A        for _ in self.__number:%0A            if _ not in valid:%0A                return False%0A        return True%0A    %0A\n     \n",
+            "lines": "19"
+        },
+        {
+            "label": "2025-12-03_16-18-06",
+            "content": "@@ -603,16 +603,17 @@\n a%22,%228890\n+b\n %22)%0Aprint\n",
+            "lines": "26"
+        },
+        {
+            "label": "2025-12-03_16-18-48",
+            "content": "@@ -584,525 +584,41 @@\n er%0A%0A\n-%0Aclass Contact:%0A    def __init__(self, name: str):%0A        self.__name = name%0A        self.fone: list%5BFone%5D = %5B%5D%0A%0A    def addFone(self, id: str, number: str):%0A        fone = Fone(id, number)%0A        if fone.isValid():%0A            self.fone.append(fone)%0A        else:%0A            print(%22fail: invalid number%22)%0A%0A%0A%0A%0A    def __str__(self):%0A        lista = %22, %22.join(%5Bstr(x) for x in self.fone%5D)%0A        return f%22%7Bself.__name%7D %5B%7Blista%7D%5D%22%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Afone = Fone(%22eva%22,%228890%22)%0Aprint(fone)%0Acontact = Contact(%22Will%22)%0Aprint(contact\n+fone = Fone(%22eva%22,%228890%22)%0Aprint(fone\n )\n",
+            "lines": "26"
+        },
+        {
+            "label": "2025-12-03_16-29-20",
+            "content": "@@ -1105,51 +1105,4 @@\n act)\n-%0Acontact.addFone(%22ester%22,%228800%22)%0Aprint(contact)\n",
+            "lines": "57"
+        },
+        {
+            "label": "2025-12-03_16-30-15",
+            "content": "@@ -1022,366 +1022,8 @@\n %0A%0A%0A%0A\n-class Agenda:%0A    def __init__(self):%0A        self.contacts: list%5BContact%5D = %5B%5D%0A%0A%0A    def addContact(self, name: str, id: str, number: str):%0A        contact = Contact(name)%0A        contact.addFone(id, number)%0A        self.contacts.append(contact)%0A%0A%0A%0A    def __str__(self):%0A        lista = %22. %22.join(%5Bstr(x) for x in self.contacts%5D)%0A        return f%22%7Blista%7D%22%0A\n %0A%0A%0A%0A\n@@ -1152,77 +1152,4 @@\n act)\n-%0Aagenda = Agenda()%0Aagenda.addContact(%22Will%22,%22Ester%22,%228800%22)%0Aprint(agenda)\n",
+            "lines": "59"
+        },
+        {
+            "label": "2025-12-03_16-46-42",
+            "content": "@@ -1570,49 +1570,8 @@\n 0%22)%0A\n-agenda.addContact(%22Ester%22,%22Will%22,%228800%22)%0A\n prin\n",
+            "lines": "77"
+        },
+        {
+            "label": "2025-12-03_16-47-16",
+            "content": "@@ -1312,10 +1312,10 @@\n  = %22\n-/n\n+. \n %22.jo\n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-12-03_16-48-05",
+            "content": "@@ -1308,16 +1308,18 @@\n ista = %22\n+/n\n %22.join(%5B\n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-12-03_16-48-15",
+            "content": "@@ -1310,21 +1310,8 @@\n ta =\n- %22%22 %5C%0A       \n  %22%22.\n",
+            "lines": "78"
+        },
+        {
+            "label": "2025-12-03_16-48-31",
+            "content": "@@ -1312,11 +1312,21 @@\n  = %22\n-/n \n+%22 %5C%0A        %22\n %22.jo\n",
+            "lines": "79"
+        },
+        {
+            "label": "2025-12-03_16-48-55",
+            "content": "class Fone: \n    def __init__(self, id: str, number: str):\n        self.__id = id\n        self.__number = number\n\n    def __str__(self):\n        return f\"{self.__id}:{self.__number}\"\n    \n    def isValid(self):\n        valid = \"0123456789().\"\n        for _ in self.__number:\n            if _ not in valid:\n                return False\n        return True\n    \n    def Get_id(self):\n        return self.__id\n    def Get_Number(self):\n        return self.__number\n    def set_id(self, id: str):\n        self.__id = id\n    def set_number(self, number: str):\n        self.__number = number\n\n\nclass Contact:\n    def __init__(self, name: str):\n        self.__name = name\n        self.fone: list[Fone] = []\n\n    def addFone(self, id: str, number: str):\n        fone = Fone(id, number)\n        if fone.isValid():\n            self.fone.append(fone)\n        else:\n            print(\"fail: invalid number\")\n\n\n\n\n    def __str__(self):\n        lista = \", \".join([str(x) for x in self.fone])\n        return f\"{self.__name} [{lista}]\"\n\n\n\n\n\nclass Agenda:\n    def __init__(self):\n        self.contacts: list[Contact] = []\n\n\n    def addContact(self, name: str, id: str, number: str):\n        contact = Contact(name)\n        contact.addFone(id, number)\n        self.contacts.append(contact)\n\n\n\n    def __str__(self):\n        lista = \"/n \".join([str(x) for x in self.contacts])\n        return f\"{lista}\"\n\n\n\n\n\nfone = Fone(\"eva\",\"8890\")\nprint(fone)\ncontact = Contact(\"Will\")\nprint(contact)\ncontact.addFone(\"ester\",\"8800\")\nprint(contact)\nagenda = Agenda()\nagenda.addContact(\"Will\",\"Ester\",\"8800\")\nagenda.addContact(\"Ester\",\"Will\",\"8800\")\nprint(agenda)",
+            "lines": "78"
+        }
+    ]
+}
