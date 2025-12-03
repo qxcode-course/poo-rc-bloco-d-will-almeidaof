@@ -26,6 +26,7 @@ class Fone:
 class Contact:
     def __init__(self, name: str):
         self.__name = name
+        self.favorited = False
         self.fone: list[Fone] = []
 
     def addFone(self, id: str, number: str):
@@ -33,14 +34,38 @@ class Contact:
         if fone.isValid():
             self.fone.append(fone)
         else:
-            print("fail: invalid number")
+            raise Exception ("fail: invalid number")
+        
+    def RemoveFone(self, index: int):
+        if 0 <= index < len(self.fone):
+            self.fone.pop(index)
+        else:
+            raise Exception ("fail: index errado")
+        
+    def tfav(self):
+        self.favorited = not self.favorited
 
+    def fav(self):
+        return self.favorited
+
+
+    def getFone(self):
+        return self.fone
+    
+    def getName(self):
+        return self.__name
+    
+    def setName(self, name: str):
+        self.__name = name
 
 
 
     def __str__(self):
         lista = ", ".join([str(x) for x in self.fone])
-        return f"{self.__name} [{lista}]"
+        if self.favorited:
+            return f"@ {self.__name} [{lista}]"
+        else:
+            return f"- {self.__name} [{lista}]"
 
 
 
@@ -51,28 +76,86 @@ class Agenda:
         self.contacts: list[Contact] = []
 
 
-    def addContact(self, name: str, id: str, number: str):
-        contact = Contact(name)
-        contact.addFone(id, number)
-        self.contacts.append(contact)
+    def posicition(self, name: str):
+        for i, n in enumerate(self.contacts):
+            if n.getName() == name:
+                return i
+            
+        return -1
+    
+
+    def removeContact(self, name: str):
+        pos = self.posicition(name)
+        if pos == -1:
+            raise Exception ("fail: nao encontrado")
+        else:
+            self.contacts.pop(pos)
+
+
+    def Get_contact(self, name: str):
+        pos = self.posicition(name)
+        if pos == -1:
+            raise Exception ("fail: nao encontrado")
+        return self.contacts[pos]
+
+
+
+    def addContact(self, name: str, fones: Fone):
+        pos = self.posicition(name)
+        if pos != -1:
+            for _ in fones:
+                self.contacts[pos].addFone(_.Get_id(), _.Get_Number())
+        else:
+            contact = Contact(name)
+            for _ in fones:
+                contact.addFone(_.Get_id(), _.Get_Number())
+            self.contacts.append(contact)
+            self.contacts.sort(key=lambda x: x.getName().lower())
+
 
 
 
     def __str__(self):
-        lista = "/n ".join([str(x) for x in self.contacts])
+        lista = "\n".join([str(x) for x in self.contacts])
         return f"{lista}"
 
 
 
 
 
-fone = Fone("eva","8890")
-print(fone)
-contact = Contact("Will")
-print(contact)
-contact.addFone("ester","8800")
-print(contact)
-agenda = Agenda()
-agenda.addContact("Will","Ester","8800")
-agenda.addContact("Ester","Will","8800")
-print(agenda)
+def main():
+    agenda = Agenda()
+    while True:
+        try:
+            line = input()
+            print("$"+line)
+            args = line.split()
+            if args[0] == "end":
+                break
+            elif args[0] == "show":
+                print(agenda)
+            elif args[0] == "add":
+                name = args[1]
+                fones = []
+                for itens in args[2:]:
+                    id, number = itens.split(":")
+                    fones.append(Fone(id, number))
+                agenda.addContact(name, fones)
+            elif args[0] == "rmFone":
+                name = args[1]
+                index = int(args[2])
+                contact = agenda.Get_contact(name)
+                contact.RemoveFone(index)
+            elif args[0] == "rm":
+                agenda.removeContact(args[1])
+        except Exception as e:
+            print(e)
+
+
+
+main()
+
+
+
+
+
