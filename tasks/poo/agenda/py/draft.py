@@ -99,6 +99,9 @@ class Agenda:
         return self.contacts[pos]
 
 
+    def get_favorited(self):
+        return [contatos for contatos in self.contacts if contatos.fav()]
+
 
     def addContact(self, name: str, fones: Fone):
         pos = self.posicition(name)
@@ -111,6 +114,27 @@ class Agenda:
                 contact.addFone(_.Get_id(), _.Get_Number())
             self.contacts.append(contact)
             self.contacts.sort(key=lambda x: x.getName().lower())
+
+
+    def busca(self, padrao: str):
+        resultado = []
+        padrao = padrao.lower()
+
+        for contact in self.contacts:
+            found = False
+
+
+            if padrao in contact.getName().lower():
+                found = True
+            else:
+                for fone in contact.getFone():
+                    if padrao in fone.Get_id().lower() or padrao in fone.Get_Number():
+                        found = True
+
+            if found:
+                resultado.append(contact)
+        return resultado
+
 
 
 
@@ -148,6 +172,22 @@ def main():
                 contact.RemoveFone(index)
             elif args[0] == "rm":
                 agenda.removeContact(args[1])
+
+            elif args[0] == "search":
+                res = agenda.busca(args[1])
+                for c in res:
+                    print(c)
+                    
+            elif args[0] == "tfav":
+                name = args[1]
+                try:
+                    agenda.Get_contact(name).tfav()
+                except Exception:
+                    print("fail: nao eoncontrado")
+
+            elif args[0] == "favs":
+                for contact in agenda.get_favorited():
+                    print(contact)
         except Exception as e:
             print(e)
 
