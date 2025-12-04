@@ -91,6 +91,8 @@ class Agenda:
         else:
             self.contacts.pop(pos)
 
+    def getFavorited(self):
+        return [contatos for contatos in self.contacts if contatos.fav()]
 
     def Get_contact(self, name: str):
         pos = self.posicition(name)
@@ -98,9 +100,6 @@ class Agenda:
             raise Exception ("fail: nao encontrado")
         return self.contacts[pos]
 
-
-    def get_favorited(self):
-        return [contatos for contatos in self.contacts if contatos.fav()]
 
 
     def addContact(self, name: str, fones: Fone):
@@ -177,17 +176,17 @@ def main():
                 res = agenda.busca(args[1])
                 for c in res:
                     print(c)
-                    
             elif args[0] == "tfav":
-                name = args[1]
                 try:
-                    agenda.Get_contact(name).tfav()
-                except Exception:
-                    print("fail: nao eoncontrado")
-
+                    contact = agenda.Get_contact(args[1])
+                    contact.tfav()
+                except Exception as e:
+                    print(e)
             elif args[0] == "favs":
-                for contact in agenda.get_favorited():
+                for contact in agenda.getFavorited():
                     print(contact)
+            else:
+                print("fail: comando não encontrado")
         except Exception as e:
             print(e)
 
